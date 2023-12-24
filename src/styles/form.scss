@@ -1,0 +1,95 @@
+form {
+    display: flex;
+    gap: 2em;
+
+    input,
+    button,
+    textarea {
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 500;
+
+        border: 2px solid transparent;
+
+        transition: color 0.5s, border 0.5s;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    input,
+    textarea {
+        &::placeholder {
+            opacity: 1;
+        }
+    }
+
+    button {
+        background: none;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    &.form-dark {
+        background-color: var(--accent-3);
+
+        input,
+        textarea,
+        button {
+            padding: 1em;
+
+            color: var(--white);
+
+            &:hover,
+            &:focus {
+                color: var(--accent-1);
+                border-color: var(--accent-1);
+            }
+        }
+
+        input,
+        textarea {
+            background-color: var(--accent-2);
+        }
+
+        button {
+            border-color: var(--white);
+        }
+    }
+
+    &.form-light {
+        background-color: var(--white);
+
+        input,
+        textarea,
+        button {
+            padding: 1em 0em;
+
+            color: var(--black);
+        }
+
+        input,
+        textarea {
+            border-bottom-color: var(--black);
+
+            &:hover,
+            &:focus {
+                color: var(--accent-1);
+                border-bottom-color: var(--accent-1);
+            }
+        }
+
+        button {
+            border-color: var(--black);
+
+            &:hover,
+            &:focus {
+                color: var(--accent-1);
+                border-color: var(--accent-1);
+            }
+        }
+    }
+}

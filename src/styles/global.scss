@@ -1,0 +1,33 @@
+/* Global variables */
+:root {
+    /* Fonts */
+    --font: 'RethinkSans', sans-serif;
+
+    /* Colors */
+    --white: #ffffff;
+    --gray: #f1f1f1;
+    --black: #1d1d1d;
+
+    --accent-1: #c6dcfd;
+    --accent-2: #33445b;
+    --accent-3: #001532;
+}
+
+body {
+    font-family: var(--font);
+    margin: 0;
+    background-color: var(--gray);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+}
+
+@import "anchor.scss";
+@import "form.scss";
+@import "font.scss";

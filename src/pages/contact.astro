@@ -1,5 +1,83 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
 ---
 
-<Layout title="Contact" />
+<Layout title="Contact">
+    <div class="body">
+        <div style="width: 50%">
+            <a href="/">Home</a> &gt; <a href="/contact">Contact</a>
+            <h1>Vragen over kunst of samenwerkingen?</h1>
+            <p>info@art-line.be<br />0486/83.82.50</p>
+            <div style="display: flex">
+                <div style="width: 50%">
+                    <h3>Tentoonstellingen</h3>
+                    <p>Baron R. de Vironlaan 117,<br />1700 Dilbeek</p>
+                </div>
+                <div style="width: 50%">
+                    <h3>Vaste collectie & inlijstingen</h3>
+                    <p>Kasteelstraat 45,<br />1700 Dilbeek</p>
+                </div>
+            </div>
+            <p>
+                <Icon icon="facebook-logo" size="1.25em" />
+                <Icon icon="instagram-logo" size="1.25em" />
+            </p>
+        </div>
+        <div style="width: 50%">
+            <form class="form-dark">
+                <input type="text" placeholder="Naam*" />
+                <input type="text" placeholder="E-mailadres*" />
+                <input type="text" placeholder="Onderwerp*" />
+                <textarea placeholder="Bericht*" />
+                <button type="submit">Stuur bericht</button>
+            </form>
+        </div>
+    </div>
+    <div class="gallery">
+        <img src="/assets/contact-1.png" />
+        <img src="/assets/contact-2.png" />
+        <img src="/assets/contact-3.png" />
+    </div>
+</Layout>
+
+<style>
+    form {
+        padding: 2.5em;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    form :nth-child(3) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    form :nth-child(4) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 5;
+    }
+
+    form :nth-child(5) {
+        grid-column-start: 2;
+        grid-row-start: 5;
+    }
+
+    .body {
+        padding: 2.5em 5em;
+        display: flex;
+    }
+
+    .gallery {
+        padding: 2.5em 5em;
+        display: flex;
+        gap: 2.5em;
+    }
+
+    .gallery > img {
+        width: 100%;
+    }
+</style>

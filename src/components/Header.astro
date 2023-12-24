@@ -1,0 +1,23 @@
+---
+import Icon from '../components/Icon.astro'
+---
+
+<header>
+    <a href="/"><img src="/assets/logo.png" style="width: 10em"/></a>
+    <div style="display: flex; align-items: center;">
+        <a>MENU</a>&nbsp;<Icon icon="list" />
+    </div>
+</header>
+
+<style>
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2.5em 5em;
+    }
+
+    header a {
+        align-self: flex-end;
+    }
+</style>

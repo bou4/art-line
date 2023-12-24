@@ -1,0 +1,89 @@
+---
+import Icon from "../components/Icon.astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+    <div class="body">
+        <div style="width: calc(3 / 12 * 100%)">
+            <h1>Contact</h1>
+            <p>Baron de Vironlaan 117,<br />1700 Dilbeek</p>
+            <a href="contact">Vragen? Contacteer ons</a>
+        </div>
+        <div style="width: calc(4 / 12 * 100%)">
+            <h1>Sitemap</h1>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/kunstenaars">Kunstenaars</a></li>
+                <li><a href="/collectie">Collectie</a></li>
+                <li><a href="/expo">Expo's</a></li>
+                <li><a href="/over-ons">Over ons</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+        <div style="width: calc(5 / 12 * 100%)">
+            <h1>Blijf op de hoogte</h1>
+            <p>
+                Geef hieronder uw e-mailadres op om u in te schrijven in onze
+                nieuwsbrief, en blijft op de hoogte van onze activiteiten.
+            </p>
+            <form>
+                <input
+                    type="text"
+                    placeholder="Naam*"
+                    style="width: calc(2 / 5 * 100%)"
+                />
+                <input
+                    type="text"
+                    placeholder="E-mailadres*"
+                    style="width: calc(2 / 5 * 100%)"
+                />
+                <button type="submit" style="width: calc(1 / 5 * 100%)">
+                    Registreer
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="tail">
+        <p style="flex-grow: 1">
+            Copyright {currentYear} &copy; Art-line
+        </p>
+        <p>
+            <Icon icon="facebook-logo" size="1.25em"/>
+            <Icon icon="instagram-logo" size="1.25em"/>
+        </p>
+    </div>
+</footer>
+
+<style>
+    .body {
+        display: flex;
+        margin-bottom: 5rem;
+    }
+
+    .tail {
+        display: flex;
+        flex-direction: row;
+        border-top: 2px solid var(--white);
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 1.25em;
+    }
+
+    li {
+        width: 50%;
+    }
+
+    footer {
+        background-color: var(--accent-3);
+        color: var(--white);
+        padding: 5rem;
+    }
+</style>

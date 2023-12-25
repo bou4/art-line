@@ -53,6 +53,10 @@ form {
         input,
         textarea {
             background-color: var(--accent-2);
+
+            &::placeholder {
+                color: var(--white);
+            }
         }
 
         button {
@@ -79,6 +83,10 @@ form {
             &:focus {
                 color: var(--accent-1);
                 border-bottom-color: var(--accent-1);
+            }
+
+            &::placeholder {
+                color: var(--black);
             }
         }
 

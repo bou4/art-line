@@ -2,4 +2,210 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Home" />
+<Layout title="Home">
+    <div class="section-1">
+        <div>
+            <img src="/assets/index-1.png" />
+        </div>
+        <div>
+            <p>Welkom</p>
+            <h1>Art-line is een kunstgallerij in hartje Dilbeek.</h1>
+            <a class="anchor-dark">Over ons</a>
+        </div>
+        <div>
+            <img src="/assets/index-2.png" />
+        </div>
+        <div>
+            <img src="/assets/index-3.png" />
+        </div>
+        <div>
+            <h1>Art-line is een kunstgallerij in hartje Dilbeek.</h1>
+            <a class="anchor-dark">Kunst</a>
+        </div>
+    </div>
+    <div class="section-2">
+        <div>
+            <img src="/assets/kunstenaars/luc-martinsen/1.png" />
+        </div>
+        <div>
+            <p>Evenement</p>
+            <div class="aside">
+                <h1>Tentoonstelling Luc Martinsen</h1>
+                <p>2 februari 2024</p>
+                <p>We nodigen jullie van harte uit op de tentoonstelling van het werk van Luc Martinsen.</p>
+            </div>
+            <a class="anchor-light">Meer informatie</a>
+        </div>
+    </div>
+    <div class="section-3">
+        <div>
+            <h1>Kunstenaars</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at rhoncus tortor. Donec rhoncus mi ac laoreet feugiat. Nam massa ligula, lacinia non viverra sit amet, ultrices at nunc.</p>
+            <div>
+                <a class="anchor-dark">Bekijk alle kunstennaars</a>&nbsp;
+                <a class="anchor-dark">Bekijk collectie</a>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="/assets/kunstenaars/peter-jacquemyn/profiel.png"/>
+                <h2>Peter Jacquemyn</h2>
+                <a class="anchor-dark">Meer informatie</a>
+            </div>
+            <div>
+                <img src="/assets/kunstenaars/pal-horvath/profiel.png"/>
+                <h2>Pal Horvath</h2>
+                <a class="anchor-dark">Meer informatie</a>
+            </div>
+            <div>
+                <img src="/assets/kunstenaars/valerie-de-smedt/profiel.png"/>
+                <h2>Valerie De Smedt</h2>
+                <a class="anchor-dark">Meer informatie</a>
+            </div>
+            <div>
+                <img src="/assets/kunstenaars/eric-leon/profiel.png"/>
+                <h2>Eric Leon</h2>
+                <a class="anchor-dark">Meer informatie</a>
+            </div>
+        </div>
+    </div>
+    <div class="section-4">
+        <div>
+            <p>Contact</p>
+            <h1>Vragen over onze diensten? Interesse in een kunstwerk?</h1>
+            <a class="anchor-dark">Contacteer ons</a>
+        </div>
+        <div>
+            <img src="/assets/index-4.png" />
+        </div>
+        <div>
+            <img src="/assets/index-5.png" />
+        </div>
+        <div>
+            <h1>Art-line is een kunstgallerij in hartje Dilbeek.</h1>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .section-1 {
+        padding: 2.5em 5em;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .section-1 > :nth-child(1) {
+        grid-column-start: 2;
+        grid-column-end: 7;
+        grid-row-start: 1;
+        grid-row-end: 4;
+    }
+
+    .section-1 > :nth-child(2) {
+        grid-column-start: 8;
+        grid-column-end: 13;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    .section-1 > :nth-child(3) {
+        grid-column-start: 8;
+        grid-column-end: 13;
+        grid-row-start: 3;
+        grid-row-end: 6;
+    }
+
+    .section-1 > :nth-child(4) {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 4;
+        grid-row-end: 7;
+    }
+
+    .section-1 > :nth-child(5) {
+        margin-top: auto;
+        grid-column-start: 6;
+        grid-column-end: 13;
+        grid-row-start: 6;
+        grid-row-end: 7;
+    }
+
+    .aside {
+        padding-left: 2.5em;
+        margin: 2.5em 0;
+        border-left: 2px solid var(--white);
+        line-height: 1;
+    }
+    .section-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5em;
+        padding: 5em;
+        margin: 2.5em 5em;
+        background-color: var(--accent-3);
+        color: var(--white);
+    }
+
+    .section-2 > :nth-child(2) {
+        margin: auto 0;
+    }
+
+    .section-3 {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5em;
+        align-items: center;
+        padding: 2.5em 5em;
+    }
+
+    .section-3 > :nth-child(1) {
+        text-align: center;
+        width: 25em;
+    }
+
+    .section-3 > :nth-child(2) {
+        display: grid;
+        width: 100%;
+        gap: 2.5em;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .section-4 {
+        padding: 5em;
+        display: grid;
+        grid-template-columns: 6fr 1fr 5fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .section-4 > :nth-child(1) {
+        text-align: right;
+    }
+
+    .section-4 > :nth-child(2) {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    .section-4 > :nth-child(3) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 4;
+    }
+    
+    .section-4 > :nth-child(4) {
+        margin-top: auto;
+        
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 4;1
+    }
+
+    img {
+        width: 100%;
+    }
+</style>

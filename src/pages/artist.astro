@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+import Layout from "../layouts/Layout.astro";
+
+const artists = await getCollection("artist");
+---
+
+<Layout title="Kunstenaars">
+    <div style="display: flex; padding: 2.5em 5em;">
+        <div style="width: 50%;">
+            <a href="/">Welkom</a> &gt; <a href="/kunstenaars">Kunstenaars</a>
+            <h1>
+                Ontmoet de talentvolle kunstenaars die onze gallerie tot leven
+                brengen.
+            </h1>
+        </div>
+    </div>
+    <div class="gallery">
+        {
+            artists.map((artist) => (
+                <div>
+                    <Image src={artist.data.cover} alt="" />
+                    <h2>{artist.data.name}</h2>
+                    <a class="anchor-dark">Meer informatie</a>
+                </div>
+            ))
+        }
+    </div>
+</Layout>
+
+<style lang="scss">
+    .gallery {
+        padding: 2.5em 5em;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 1fr;
+        gap: 2.5em;
+
+        div {
+            display: flex;
+            flex-direction: column;
+
+            img {
+                margin: 0 auto;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+    }
+</style>

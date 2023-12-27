@@ -1,23 +1,37 @@
 ---
-import Icon from '../components/Icon.astro'
+import { Image } from 'astro:assets';
+
+import Icon from '../components/Icon.astro';
+
+import logo from '../assets/logo.png';
 ---
 
 <header>
-    <a href="/"><img src="/assets/logo.png" style="width: 10em"/></a>
+    <a href="/">
+        <Image src={logo} alt="" />
+    </a>
     <div style="display: flex; align-items: center;">
         <a>MENU</a>&nbsp;<Icon icon="list" />
     </div>
 </header>
 
-<style>
+<style lang="scss">
     header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
         padding: 2.5em 5em;
-    }
 
-    header a {
-        align-self: flex-end;
+        a {
+            align-self: flex-end;
+        }
+        
+        img {
+            height: auto;
+            width: 10em;
+        }
+
+        div {
+            margin-left: auto;
+        }
     }
 </style>

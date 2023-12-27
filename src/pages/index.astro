@@ -1,11 +1,16 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
 import Layout from "../layouts/Layout.astro";
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/index/*.{jpg,png}');
 ---
 
 <Layout title="Home">
     <div class="section-1">
         <div>
-            <img src="/assets/index-1.png" />
+            <Image src={images['/src/assets/index/1-1x1.png']()} alt="" />
         </div>
         <div>
             <p>Welkom</p>
@@ -13,10 +18,10 @@ import Layout from "../layouts/Layout.astro";
             <a class="anchor-dark">Over ons</a>
         </div>
         <div>
-            <img src="/assets/index-2.png" />
+            <Image src={images['/src/assets/index/2-5x6.png']()} alt="" />
         </div>
         <div>
-            <img src="/assets/index-3.png" />
+            <Image src={images['/src/assets/index/3-2x3.jpg']()} alt="" />
         </div>
         <div>
             <h1>Art-line is een kunstgallerij in hartje Dilbeek.</h1>
@@ -92,43 +97,43 @@ import Layout from "../layouts/Layout.astro";
         padding: 2.5em 5em;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-rows: repeat(12, 1fr);
     }
 
     .section-1 > :nth-child(1) {
         grid-column-start: 2;
         grid-column-end: 7;
         grid-row-start: 1;
-        grid-row-end: 4;
+        grid-row-end: 6;
     }
 
     .section-1 > :nth-child(2) {
         grid-column-start: 8;
         grid-column-end: 13;
-        grid-row-start: 1;
-        grid-row-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 4;
     }
 
     .section-1 > :nth-child(3) {
         grid-column-start: 8;
         grid-column-end: 13;
-        grid-row-start: 3;
-        grid-row-end: 6;
+        grid-row-start: 5;
+        grid-row-end: 11;
     }
 
     .section-1 > :nth-child(4) {
         grid-column-start: 1;
         grid-column-end: 5;
-        grid-row-start: 4;
-        grid-row-end: 7;
+        grid-row-start: 7;
+        grid-row-end: 13;
     }
 
     .section-1 > :nth-child(5) {
         margin-top: auto;
         grid-column-start: 6;
         grid-column-end: 13;
-        grid-row-start: 6;
-        grid-row-end: 7;
+        grid-row-start: 11;
+        grid-row-end: 13;
     }
 
     .aside {
@@ -207,5 +212,6 @@ import Layout from "../layouts/Layout.astro";
 
     img {
         width: 100%;
+        height: auto;
     }
 </style>

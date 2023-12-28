@@ -5,13 +5,13 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-    <div class="body">
-        <div style="width: calc(3 / 12 * 100%)">
+    <div>
+        <div>
             <h1>Contact</h1>
             <p>Baron de Vironlaan 117,<br />1700 Dilbeek</p>
             <a class="anchor-light" href="contact">Vragen? Contacteer ons</a>
         </div>
-        <div style="width: calc(4 / 12 * 100%)">
+        <div>
             <h1>Sitemap</h1>
             <ul>
                 <li><a class="anchor-light" href="/">Home</a></li>
@@ -22,50 +22,88 @@ const currentYear = new Date().getFullYear();
                 <li><a class="anchor-light" href="/contact">Contact</a></li>
             </ul>
         </div>
-        <div style="width: calc(5 / 12 * 100%)">
+        <div>
             <h1>Blijf op de hoogte</h1>
             <p>
                 Geef hieronder uw e-mailadres op om u in te schrijven in onze
                 nieuwsbrief, en blijft op de hoogte van onze activiteiten.
             </p>
             <form class="form-dark">
-                <input
-                    type="text"
-                    placeholder="Naam*"
-                    style="width: calc(2 / 5 * 100%)"
-                />
-                <input
-                    type="text"
-                    placeholder="E-mailadres*"
-                    style="width: calc(2 / 5 * 100%)"
-                />
-                <button type="submit" style="width: calc(1 / 5 * 100%)">
-                    Registreer
-                </button>
+                <input type="text" placeholder="E-mailadres*" />
+                <button type="submit">Registreer</button>
             </form>
         </div>
     </div>
-    <div class="tail">
-        <p style="flex-grow: 1">
+    <div>
+        <p>
             Copyright {currentYear} &copy; Art-line
         </p>
         <p>
-            <Icon icon="facebook-logo" size="1.25em"/>
-            <Icon icon="instagram-logo" size="1.25em"/>
+            <Icon icon="facebook-logo" size="1.25em" />
+            <Icon icon="instagram-logo" size="1.25em" />
         </p>
     </div>
 </footer>
 
-<style>
-    .body {
-        display: flex;
-        margin-bottom: 5rem;
-    }
+<style lang="scss">
+    footer {
+        padding: 2.5em 5em;
+        background-color: var(--accent-3);
+        color: var(--white);
 
-    .tail {
-        display: flex;
-        flex-direction: row;
-        border-top: 2px solid var(--white);
+        > :nth-child(1) {
+            display: flex;
+            flex-wrap: wrap;
+
+            > :nth-child(1) {
+                width: calc(3 / 12 * 100%);
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+            }
+
+            > :nth-child(2) {
+                width: calc(3 / 12 * 100%);
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+            }
+
+            > :nth-child(3) {
+                width: calc(6 / 12 * 100%);
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+
+                > form {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1.25em;
+
+                    > :nth-child(1) {
+                        width: calc(60% - 1.25em * 1 / 2);
+                    }
+
+                    > :nth-child(2) {
+                        width: calc(40% - 1.25em * 1 / 2);
+                    }
+                }
+            }
+        }
+
+        > :nth-child(2) {
+            margin-top: 5em;
+            display: flex;
+            align-items: center;
+            border-top: 2px solid var(--white);
+
+            > :nth-child(2) {
+                margin-left: auto;
+            }
+        }
     }
 
     ul {
@@ -79,12 +117,5 @@ const currentYear = new Date().getFullYear();
 
     li {
         width: 50%;
-    }
-
-    footer {
-        background-color: var(--accent-3);
-        color: var(--white);
-        padding: 5em;
-        margin-top: 2.5em;
     }
 </style>

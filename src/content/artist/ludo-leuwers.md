@@ -1,4 +1,4 @@
 ---
 name: Ludo Leuwers
-cover: "../../assets/artist/ludo-leuwers/index.jpg"
+cover: "./ludo-leuwers.png"
 ---

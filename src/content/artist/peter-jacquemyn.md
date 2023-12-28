@@ -1,4 +1,4 @@
 ---
 name: Peter Jacquemyn
-cover: "../../assets/artist/peter-jacquemyn/index.jpeg"
+cover: "./peter-jacquemyn.png"
 ---

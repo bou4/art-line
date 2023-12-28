@@ -1,4 +1,4 @@
 ---
 name: Frans De Neyer
-cover: "../../assets/artist/frans-de-neyer/index.jpg"
+cover: "./frans-de-neyer.png"
 ---

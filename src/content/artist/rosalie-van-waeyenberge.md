@@ -1,4 +1,4 @@
 ---
 name: Rosalie Van Waeyenberge
-cover: "../../assets/artist/rosalie-van-waeyenberge/index.webp"
+cover: "./rosalie-van-waeyenberge.png"
 ---

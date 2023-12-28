@@ -15,7 +15,7 @@
 
 body {
     font-family: var(--font);
-    margin: 0;
+    margin: 0em;
     background-color: var(--gray);
 }
 
@@ -26,6 +26,10 @@ h4,
 h5,
 h6 {
     font-weight: 500;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 @import "anchor.scss";

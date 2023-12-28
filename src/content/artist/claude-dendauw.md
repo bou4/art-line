@@ -1,4 +1,4 @@
 ---
 name: Claude Dendauw
-cover: "../../assets/artist/claude-dendauw/index.jpeg"
+cover: "./claude-dendauw.png"
 ---

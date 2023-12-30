@@ -11,6 +11,15 @@
     --accent-1: #c6dcfd;
     --accent-2: #33445b;
     --accent-3: #001532;
+
+    /* Gaps */
+    --gap: 2.5em;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --gap: 1.25em;
+    }
 }
 
 body {

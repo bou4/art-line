@@ -20,12 +20,8 @@ import Layout from "../../layouts/Layout.astro";
 
 <Layout title={artistEntry.data.name}>
     <div>
-        <a href="/">Welkom</a> &gt; <a href="/artist">Kunstenaars</a> &gt; <a
-            href=`/artist/${artistEntry.slug}`>{artistEntry.data.name}</a
-        >
+        <a href="/">Welkom</a> &gt; <a href="/kunstenaars/">Kunstenaars</a> &gt;
+        <a href=`/kunstenaars/${artistEntry.slug}`>{artistEntry.data.name}</a>
     </div>
     <Content />
 </Layout>
-
-<style lang="scss">
-</style>

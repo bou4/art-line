@@ -1,0 +1,94 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+import Layout from "../layouts/Layout.astro";
+
+const artwork = await getCollection("artwork");
+---
+
+<Layout title="Kunstwerken">
+    <div class="artwork-header">
+        <div class="artwork-header-left">
+            <a href="/">Welkom</a> &gt; <a href="/kunstwerken/">Kunstwerken</a>
+            <h1>
+                Van schilderijen tot sculpturen:
+                ontdek onze diverse kunstcollectie.
+            </h1>
+        </div>
+    </div>
+    <div class="artwork-main">
+        {
+            artwork.map((artwork) => (
+                <div>
+                    <Image src={artwork.data.cover} alt="" />
+                    <h2>{artwork.data.name}</h2>
+                    <a class="anchor-dark" href={`/kunstwerken/${artwork.slug}/`}>Meer informatie</a>
+                </div>
+            ))
+        }
+    </div>
+</Layout>
+
+<style>
+    .artwork-header {
+        display: flex;
+    }
+
+    .artwork-header-left {
+        width: 50%;
+    }
+
+    .artwork-main {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        row-gap: calc(2 * var(--gap));
+    }
+
+    .artwork-main > div:nth-child(4n+1) {
+        grid-column-start: 1;
+        grid-column-end: 6;
+    }
+
+    .artwork-main > div:nth-child(4n+2) {
+        grid-column-start: 7;
+        grid-column-end: 12;
+        margin-top: calc(2 * var(--gap));
+    }
+
+    .artwork-main > div:nth-child(4n+3) {
+        grid-column-start: 2;
+        grid-column-end: 7;
+    }
+
+    .artwork-main > div:nth-child(4n+4) {
+        grid-column-start: 8;
+        grid-column-end: 13;
+        margin-top: calc(2 * var(--gap));
+    }
+
+    .artwork-main > div > img {
+        width: 100%;
+        height: auto;
+    }
+
+    @media (max-width: 1200px) {
+        .artwork-header-left,
+        .artwork-header-right {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .artwork-main {
+            grid-template-columns: 1fr;
+            row-gap: var(--gap);
+        }
+        
+        .artwork-main > div:nth-child(n) {
+            margin-top: 0px;
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+    }
+</style>

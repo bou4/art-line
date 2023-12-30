@@ -15,9 +15,6 @@ const currentYear = new Date().getFullYear();
             <h1>Sitemap</h1>
             <div class="footer-sitemap-anchors">
                 <div>
-                    <a class="anchor-light" href="/">Home</a>
-                </div>
-                <div>
                     <a class="anchor-light" href="/kunstenaars/">Kunstenaars</a>
                 </div>
                 <div>
@@ -25,6 +22,9 @@ const currentYear = new Date().getFullYear();
                 </div>
                 <div>
                     <a class="anchor-light" href="/exposities/">Exposities</a>
+                </div>
+                <div>
+                    <a class="anchor-light" href="/diensten/">Diensten</a>
                 </div>
                 <div>
                     <a class="anchor-light" href="/over-ons/">Over ons</a>
@@ -82,7 +82,7 @@ const currentYear = new Date().getFullYear();
     .footer-sitemap-anchors {
         display: flex;
         flex-wrap: wrap;
-        row-gap: calc(var(--gap) / 2);
+        row-gap: calc(var(--gap) / 4);
     }
 
     .footer-sitemap-anchors > * {

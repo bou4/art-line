@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+import Layout from "../layouts/Layout.astro";
+
+const artists = await getCollection("artist");
+---
+
+<Layout title="Kunstenaars">
+    <div class="artist-header">
+        <div class="artist-header-left">
+            <a href="/">Welkom</a> &gt; <a href="/kunstenaars/">Kunstenaars</a>
+            <h1>
+                Ontmoet de talentvolle kunstenaars die onze gallerie tot leven
+                brengen.
+            </h1>
+        </div>
+    </div>
+    <div class="artist-main">
+        {
+            artists.map((artist) => (
+                <div>
+                    <Image src={artist.data.cover} alt="" />
+                    <h2>{artist.data.name}</h2>
+                    <a class="anchor-dark" href={`/kunstenaars/${artist.slug}/`}>Meer informatie</a>
+                </div>
+            ))
+        }
+    </div>
+</Layout>
+
+<style>
+    .artist-header {
+        display: flex;
+    }
+
+    .artist-header-left {
+        width: 50%;
+    }
+
+    .artist-main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gap);
+    }
+
+    .artist-main > div {
+        width: calc(1 / 4 * 100% - var(--gap) * 3 / 4);
+    }
+
+    .artist-main > div > img {
+        width: 100%;
+        height: auto;
+    }
+
+    @media (max-width: 1200px) {
+        .artist-header-left, .artist-header-right {
+            width: 100%
+        }
+
+        .artist-main > div {
+            width: calc(1 / 2 * 100% - var(--gap) * 1 / 2);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .artist-main > div {
+            width: 100%;
+        }
+    }
+
+</style>

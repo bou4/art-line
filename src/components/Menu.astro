@@ -1,0 +1,90 @@
+---
+import Icon from "../components/Icon.astro";
+---
+
+<div class="menu">
+    <div></div>
+    <div>
+        <div class="menu-close">
+            <a>SLUITEN</a>
+        </div>
+        <div class="menu-items">
+            <a href="/">Welkom</a>
+            <a href="/artist/">Kunstenaars</a>
+            <a href="/artwork/">Kunstwerken</a>
+            <a href="/expo/">Exposities</a>
+            <a href="/services/">Diensten</a>
+            <a href="/about/">Over ons</a>
+            <a href="/contact/">Contact</a>
+        </div>
+        <div class="menu-footer">
+            <div>
+                <p>vragen?</p>
+                <a>info@art-line.be</a>
+            </div>
+            <div>
+                <p>volg ons</p>
+                <Icon icon="facebook-logo" />
+                <Icon icon="instagram-logo" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<style lang="scss">
+    .menu {
+        width: 100vw;
+        height: auto;
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        overflow-y: auto;
+
+        > :nth-child(1) {
+            width: 50%;
+            backdrop-filter: blur(10px);
+
+            @media (max-width: 50em) {
+                width: 0%;
+            }
+        }
+
+        > :nth-child(2) {
+            width: 50%;
+            color: var(--white);
+            background-color: var(--accent-3);
+            padding: 5em;
+
+            @media (max-width: 50em) {
+                width: 100%;
+            }
+        }
+    }
+
+    .menu-items {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5em;
+
+        > * {
+            font-size: 2.5em;
+        }
+    }
+
+    .menu-close {
+        text-align: right;
+    }
+
+    .menu-footer {
+        display: flex;
+        border-top: 2px solid var(--white);
+        padding-top: 1.25em;
+        margin-top: 2.5em;
+
+        > :nth-child(2) {
+            margin-left: auto;
+        }
+    }
+</style>

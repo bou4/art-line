@@ -30,8 +30,11 @@ const { title } = Astro.props;
 	</body>
 </html>
 
-<style lang="scss">
+<style>
 	main {
-		padding: 2.5em 5em;
+		display: flex;
+		flex-direction: column;
+		gap: calc(var(--gap));
+		margin: var(--gap) calc(2 * var(--gap));
 	}
 </style>

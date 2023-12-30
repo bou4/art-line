@@ -5,117 +5,154 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-    <div>
-        <div>
+    <div class="footer-main">
+        <div class="footer-contact">
             <h1>Contact</h1>
             <p>Baron de Vironlaan 117,<br />1700 Dilbeek</p>
-            <a class="anchor-light" href="contact">Vragen? Contacteer ons</a>
+            <a class="anchor-light" href="/contact/">Vragen? Contacteer ons</a>
         </div>
-        <div>
+        <div class="footer-sitemap">
             <h1>Sitemap</h1>
-            <ul>
-                <li><a class="anchor-light" href="/">Home</a></li>
-                <li><a class="anchor-light" href="/artist">Kunstenaars</a></li>
-                <li><a class="anchor-light" href="/art">Kunstwerken</a></li>
-                <li><a class="anchor-light" href="/expo">Exposities</a></li>
-                <li><a class="anchor-light" href="/over-ons">Over ons</a></li>
-                <li><a class="anchor-light" href="/contact">Contact</a></li>
-            </ul>
+            <div class="footer-sitemap-anchors">
+                <div>
+                    <a class="anchor-light" href="/">Home</a>
+                </div>
+                <div>
+                    <a class="anchor-light" href="/kunstenaars/">Kunstenaars</a>
+                </div>
+                <div>
+                    <a class="anchor-light" href="/kunstwerken/">Kunstwerken</a>
+                </div>
+                <div>
+                    <a class="anchor-light" href="/exposities/">Exposities</a>
+                </div>
+                <div>
+                    <a class="anchor-light" href="/over-ons/">Over ons</a>
+                </div>
+                <div>
+                    <a class="anchor-light" href="/contact/">Contact</a>
+                </div>
+            </div>
         </div>
-        <div>
+        <div class="footer-form">
             <h1>Blijf op de hoogte</h1>
             <p>
                 Geef hieronder uw e-mailadres op om u in te schrijven in onze
                 nieuwsbrief, en blijft op de hoogte van onze activiteiten.
             </p>
             <form class="form-dark">
+                <input type="text" placeholder="Naam*" />
                 <input type="text" placeholder="E-mailadres*" />
                 <button type="submit">Registreer</button>
             </form>
         </div>
     </div>
-    <div>
-        <p>
+    <div class="footer-footer">
+        <p class="footer-copyright">
             Copyright {currentYear} &copy; Art-line
         </p>
-        <p>
+        <p class="footer-social">
             <Icon icon="facebook-logo" size="1.25em" />
             <Icon icon="instagram-logo" size="1.25em" />
         </p>
     </div>
 </footer>
 
-<style lang="scss">
+<style>
     footer {
         padding: 2.5em 5em;
         background-color: var(--accent-3);
         color: var(--white);
-
-        > :nth-child(1) {
-            display: flex;
-            flex-wrap: wrap;
-
-            > :nth-child(1) {
-                width: calc(3 / 12 * 100%);
-
-                @media (max-width: 768px) {
-                    width: 100%;
-                }
-            }
-
-            > :nth-child(2) {
-                width: calc(3 / 12 * 100%);
-
-                @media (max-width: 768px) {
-                    width: 100%;
-                }
-            }
-
-            > :nth-child(3) {
-                width: calc(6 / 12 * 100%);
-
-                @media (max-width: 768px) {
-                    width: 100%;
-                }
-
-                > form {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 1.25em;
-
-                    > :nth-child(1) {
-                        width: calc(60% - 1.25em * 1 / 2);
-                    }
-
-                    > :nth-child(2) {
-                        width: calc(40% - 1.25em * 1 / 2);
-                    }
-                }
-            }
-        }
-
-        > :nth-child(2) {
-            margin-top: 5em;
-            display: flex;
-            align-items: center;
-            border-top: 2px solid var(--white);
-
-            > :nth-child(2) {
-                margin-left: auto;
-            }
-        }
     }
 
-    ul {
-        list-style-type: none;
-        padding: 0;
+    .footer-main {
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 2.5em;
+    }
+
+    .footer-contact {
+        width: calc(3 / 12 * 100%);
+    }
+
+    .footer-sitemap {
+        width: calc(4 / 12 * 100%);
+    }
+
+    .footer-sitemap-anchors {
+        display: flex;
         flex-wrap: wrap;
         row-gap: 1.25em;
     }
 
-    li {
+    .footer-sitemap-anchors > * {
         width: 50%;
+    }
+
+    .footer-form {
+        width: calc(5 / 12 * 100%);
+    }
+
+    .footer-form > form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25em;
+    }
+
+    .footer-form > form > :nth-child(1) {
+        width: calc(1 / 3 * 100% - 1.25em * 2 / 3);
+    }
+
+    .footer-form > form > :nth-child(2) {
+        width: calc(1 / 3 * 100% - 1.25em * 2 / 3);
+    }
+
+    .footer-form > form > :nth-child(3) {
+        width: calc(1 / 3 * 100% - 1.25em * 2 / 3);
+    }
+
+    .footer-footer {
+        display: flex;
+        align-items: center;
+        border-top: 2px solid var(--white);
+        margin-top: 5em;
+    }
+
+    .footer-social {
+        margin-left: auto;
+    }
+
+    @media (max-width: 1200px) {
+        .footer-contact {
+            width: calc(1 / 2 * 100%);
+        }
+
+        .footer-sitemap {
+            width: calc(1 / 2 * 100%);
+        }
+
+        .footer-form {
+            width: calc(100%);
+            order: -1;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer-contact {
+            width: 100%;
+        }
+
+        .footer-sitemap {
+            width: 100%;
+        }
+
+        .footer-form {
+            width: 100%;
+            order: -1;
+        }
+
+        .footer-form > form > :nth-child(n) {
+            width: 100%;
+        }
     }
 </style>

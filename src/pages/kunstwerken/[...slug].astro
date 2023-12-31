@@ -1,0 +1,29 @@
+---
+import { getCollection, getEntry } from "astro:content";
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+    const artworkEntries = await getCollection("artwork");
+
+    return artworkEntries.map((artworkEntry) => ({
+        params: { slug: artworkEntry.slug },
+        props: { artworkEntry },
+    }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { artworkEntry } = Astro.props;
+
+const { Content, headings, remarkPluginFrontmatter } =
+    await artworkEntry.render();
+
+import Layout from "../../layouts/Layout.astro";
+
+const artist = await getEntry(artworkEntry.data.artist);
+---
+
+<Layout title={artist.data.name}>
+    <div>
+        <a href="/">Welkom</a> &gt; <a href="/kunstwerken/">Kunstwerken</a> &gt;
+        <a href=`/kunstwerken/${artworkEntry.slug}`>{artworkEntry.data.name}</a>
+    </div>
+    <Content />
+</Layout>

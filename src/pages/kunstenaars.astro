@@ -42,7 +42,8 @@ const artists = await getCollection("artist");
     .artist-main {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--gap);
+        column-gap: var(--gap);
+        row-gap: calc(2 * var(--gap));
     }
 
     .artist-main > div {

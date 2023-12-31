@@ -1,0 +1,31 @@
+---
+import { getEntry, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+interface Props {
+    artwork: CollectionEntry<"artwork">;
+}
+
+const { artwork } = Astro.props;
+
+const artist = await getEntry(artwork.data.artist);
+---
+
+<Image src={artwork.data.cover} alt="" />
+<h2>{artist.data.name}</h2>
+<p>{artwork.data.technique}</p>
+<a class="anchor-dark" href={`/kunstwerken/${artwork.slug}/`}>
+    Meer informatie
+</a>
+
+<style>
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    p {
+        font-style: italic;
+        color: var(--accent-2);
+    }
+</style>

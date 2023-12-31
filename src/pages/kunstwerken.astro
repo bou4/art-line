@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 import Layout from "../layouts/Layout.astro";
+import Artwork from "../components/Artwork.astro";
 
 const artwork = await getCollection("artwork");
 
@@ -25,11 +25,7 @@ artwork.sort((a, b) => {
         {
             artwork.map((artwork) => (
                 <div>
-                    <Image src={artwork.data.cover} alt="" />
-                    <h2>{artwork.data.name}</h2>
-                    <a class="anchor-dark" href={`/kunstwerken/${artwork.slug}/`}>
-                        Meer informatie
-                    </a>
+                    <Artwork artwork={artwork} />
                 </div>
             ))
         }
@@ -71,11 +67,6 @@ artwork.sort((a, b) => {
         grid-column-start: 8;
         grid-column-end: 13;
         margin-top: calc(2 * var(--gap));
-    }
-
-    .artwork-main > div > img {
-        width: 100%;
-        height: auto;
     }
 
     @media (max-width: 1200px) {

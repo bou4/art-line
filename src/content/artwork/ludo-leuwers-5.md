@@ -2,6 +2,7 @@
 name: Ludo Leuwers
 cover: "./ludo-leuwers-5.jpg"
 technique: Gips, Maquette
+order: 4
 ---
 Ludo Leuwers (°1959) is architect van opleiding , en studeerde schilderkunst aan de kunstacademie te Anderlecht.
 

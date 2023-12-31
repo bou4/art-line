@@ -3,6 +3,7 @@ name: Ludo Leuwers
 cover: "./ludo-leuwers-2.jpg"
 technique: Inkt op papier
 format: 148 mm x 210 mm
+order: 1
 ---
 Ludo Leuwers (°1959) is architect van opleiding , en studeerde schilderkunst aan de kunstacademie te Anderlecht.
 

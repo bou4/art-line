@@ -5,6 +5,10 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 
 const artwork = await getCollection("artwork");
+
+artwork.sort((a, b) => {
+    return a.data.order > b.data.order ? 1 : -1;
+});
 ---
 
 <Layout title="Kunstwerken">
@@ -12,8 +16,8 @@ const artwork = await getCollection("artwork");
         <div class="artwork-header-left">
             <a href="/">Welkom</a> &gt; <a href="/kunstwerken/">Kunstwerken</a>
             <h1>
-                Van schilderijen tot sculpturen:
-                ontdek onze diverse kunstcollectie.
+                Van schilderijen tot sculpturen: ontdek onze diverse
+                kunstcollectie.
             </h1>
         </div>
     </div>
@@ -23,7 +27,9 @@ const artwork = await getCollection("artwork");
                 <div>
                     <Image src={artwork.data.cover} alt="" />
                     <h2>{artwork.data.name}</h2>
-                    <a class="anchor-dark" href={`/kunstwerken/${artwork.slug}/`}>Meer informatie</a>
+                    <a class="anchor-dark" href={`/kunstwerken/${artwork.slug}/`}>
+                        Meer informatie
+                    </a>
                 </div>
             ))
         }
@@ -45,23 +51,23 @@ const artwork = await getCollection("artwork");
         row-gap: calc(2 * var(--gap));
     }
 
-    .artwork-main > div:nth-child(4n+1) {
+    .artwork-main > div:nth-child(4n + 1) {
         grid-column-start: 1;
         grid-column-end: 6;
     }
 
-    .artwork-main > div:nth-child(4n+2) {
+    .artwork-main > div:nth-child(4n + 2) {
         grid-column-start: 7;
         grid-column-end: 12;
         margin-top: calc(2 * var(--gap));
     }
 
-    .artwork-main > div:nth-child(4n+3) {
+    .artwork-main > div:nth-child(4n + 3) {
         grid-column-start: 2;
         grid-column-end: 7;
     }
 
-    .artwork-main > div:nth-child(4n+4) {
+    .artwork-main > div:nth-child(4n + 4) {
         grid-column-start: 8;
         grid-column-end: 13;
         margin-top: calc(2 * var(--gap));
@@ -84,7 +90,7 @@ const artwork = await getCollection("artwork");
             grid-template-columns: 1fr;
             row-gap: var(--gap);
         }
-        
+
         .artwork-main > div:nth-child(n) {
             margin-top: 0px;
             grid-column-start: 1;

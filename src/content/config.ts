@@ -14,6 +14,7 @@ const artworkCollection = defineCollection({
     schema: ({ image }) => z.object({
         name: z.string(),
         cover: image(),
+        order: z.number().default(0),
     }),
 });
 // 3. Export a single `collections` object to register your collection(s)

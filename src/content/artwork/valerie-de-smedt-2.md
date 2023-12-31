@@ -2,6 +2,7 @@
 name: Valerie De Smedt
 cover: "./valerie-de-smedt-2.jpg"
 technique: Acryl op paneel
+order: 1
 ---
 Valerie De Smedt (°1999) uit Roosdaal behaalde in 2021 magna cum laude haar masterdiploma Schilderkunst aan LUCA School of Arts te Gent.
 

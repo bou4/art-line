@@ -2,3 +2,4 @@
 name: Rosalie Van Waeyenberge
 cover: "./rosalie-van-waeyenberge.png"
 ---
+We maken deel uit van de natuur en toch staan we er haaks op. Het wringt constant tussen ons. Het organische en natuurlijke komt op mij persoonlijk over als een chaotische opeenstapeling van allerlei organismen, klein of groot, boven en onder elkaar, oncontroleerbaar. En ergens horen we daarin thuis. Misschien nog het meest in hoe we er ons van proberen afsluiten. Dus laat ik stukjes van menselijke vormen overgroeien en veeg ik als mens die overgroeide natuur weer weg. Wat overblijft is een gelaagde chaos, zonder duidelijke oorsprong, iets dat is ontstaan en blijven woekeren, wat ik probeer te ordenen naar de maat van mijn mens zijn. Ik werkte op oude acrylwerken en nieuw linnen, en met olieverf gemaakt van pigmenten, lijnolie en sinaasappelterpentijn.

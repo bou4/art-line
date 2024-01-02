@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 
 import Layout from "../layouts/Layout.astro";
 import Artwork from "../components/Artwork.astro";
+import CTA from "../components/CTA.astro";
 
 const artwork = await getCollection("artwork");
 
@@ -24,4 +25,8 @@ artwork.sort((a, b) => {
     <div class="grid-staggered-2">
         {artwork.map((artwork) => <Artwork artwork={artwork} />)}
     </div>
+    <CTA title="Interesse in een kunstwerk?">
+        Krijgen ze een nieuwe betekenis bij een nieuwe bestemming? Vraag naar de
+        mogelijkheden! Kopen, huren, ruilen, ...
+    </CTA>
 </Layout>

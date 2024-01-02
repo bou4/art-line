@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'RethinkSans';
+    src: url('/fonts/RethinkSans-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
+    font-size: 100%;
+    font-family: var(--font);
+
+    @media (max-width: 768px) {
+        font-size: calc(2 / 3 * 100%);
+    }
+
+    line-height: 1.5;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.1;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 2.8125em;
+}
+
+h2 {
+    font-size: 2.125em;
+}
+
+h3 {
+    font-size: 1.875em;
+}

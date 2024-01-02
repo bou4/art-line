@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/index/*.{jpg,png}');
 ---
 
-<Layout title="Home">
+<Layout title="Welkom">
     <div class="section-1">
         <div>
             <Image src={images['/src/assets/index/1-1x1.png']()} alt="" />
@@ -208,10 +208,5 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/index/*
         grid-column-end: 4;
         grid-row-start: 3;
         grid-row-end: 4;1
-    }
-
-    img {
-        width: 100%;
-        height: auto;
     }
 </style>

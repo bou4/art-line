@@ -21,7 +21,7 @@ artwork.sort((a, b) => {
             </h1>
         </div>
     </div>
-    <div class="artwork-main">
+    <div class="grid-staggered-2">
         {
             artwork.map((artwork) => (
                 <div>
@@ -41,51 +41,10 @@ artwork.sort((a, b) => {
         width: 50%;
     }
 
-    .artwork-main {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        row-gap: calc(2 * var(--gap));
-    }
-
-    .artwork-main > div:nth-child(4n + 1) {
-        grid-column-start: 1;
-        grid-column-end: 6;
-    }
-
-    .artwork-main > div:nth-child(4n + 2) {
-        grid-column-start: 7;
-        grid-column-end: 12;
-        margin-top: calc(2 * var(--gap));
-    }
-
-    .artwork-main > div:nth-child(4n + 3) {
-        grid-column-start: 2;
-        grid-column-end: 7;
-    }
-
-    .artwork-main > div:nth-child(4n + 4) {
-        grid-column-start: 8;
-        grid-column-end: 13;
-        margin-top: calc(2 * var(--gap));
-    }
-
     @media (max-width: 1200px) {
         .artwork-header-left,
         .artwork-header-right {
             width: 100%;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .artwork-main {
-            grid-template-columns: 1fr;
-            row-gap: var(--gap);
-        }
-
-        .artwork-main > div:nth-child(n) {
-            margin-top: 0px;
-            grid-column-start: 1;
-            grid-column-end: 2;
         }
     }
 </style>

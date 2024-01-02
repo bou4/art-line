@@ -18,8 +18,7 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { artistEntry } = Astro.props;
 
-const { Content, headings, remarkPluginFrontmatter } =
-    await artistEntry.render();
+const { Content } = await artistEntry.render();
 
 const artwork = await getCollection("artwork", ({ data }) => {
     return data.artist.slug === artistEntry.slug;
@@ -27,12 +26,13 @@ const artwork = await getCollection("artwork", ({ data }) => {
 ---
 
 <Layout title={artistEntry.data.name}>
-    <div>
-        <a href="/">Welkom</a> &gt; <a href="/kunstenaars/">Kunstenaars</a> &gt;
-        <h1 class="artist-name">{artistEntry.data.name}</h1>
+    <div class="artist-header">
+        <a class="anchor-dark" href="/kunstenaars/">Terug naar overzicht</a>
+        <p>Kunstenaar</p>
+        <h1>{artistEntry.data.name}</h1>
     </div>
     <div class="artist-main">
-        <div class="artist-image">
+        <div class="artist-cover">
             <Image src={artistEntry.data.cover} alt="" />
         </div>
         <div class="artist-about">
@@ -64,21 +64,30 @@ const artwork = await getCollection("artwork", ({ data }) => {
         </div>
     </div>
     <div>
-        <h2>Kunstwerken</h2>
-        <div class="artist-artwork">
+        {
+            artwork && artwork.length !== 0 && (
+                <>
+                    <p>Kunstwerken</p>
+                    <h1>Kunst van {artistEntry.data.name}</h1>
+                </>
+            )
+        }
+        <div class="grid-staggered-2">
             {
-                artwork.map((artwork) => (
-                    <div>
-                        <Artwork artwork={artwork} />
-                    </div>
-                ))
+                artwork &&
+                    artwork.map((artwork) => (
+                        <div>
+                            <Artwork artwork={artwork} />
+                        </div>
+                    ))
             }
         </div>
     </div>
 </Layout>
 
 <style>
-    .artist-name {
+    .artist-header > p,
+    .artist-header > h1 {
         text-align: center;
     }
 
@@ -88,7 +97,7 @@ const artwork = await getCollection("artwork", ({ data }) => {
         gap: var(--gap);
     }
 
-    .artist-image {
+    .artist-cover {
         width: calc(50% - var(--gap) / 2);
     }
 
@@ -104,58 +113,12 @@ const artwork = await getCollection("artwork", ({ data }) => {
         width: calc(50% - var(--gap) / 2);
     }
 
-    .artist-image > img {
-        width: 100%;
-        height: auto;
-    }
-
-    .artist-artwork {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        row-gap: calc(2 * var(--gap));
-    }
-
-    .artist-artwork > div:nth-child(4n + 1) {
-        grid-column-start: 1;
-        grid-column-end: 6;
-    }
-
-    .artist-artwork > div:nth-child(4n + 2) {
-        grid-column-start: 7;
-        grid-column-end: 12;
-        margin-top: calc(2 * var(--gap));
-    }
-
-    .artist-artwork > div:nth-child(4n + 3) {
-        grid-column-start: 2;
-        grid-column-end: 7;
-    }
-
-    .artist-artwork > div:nth-child(4n + 4) {
-        grid-column-start: 8;
-        grid-column-end: 13;
-        margin-top: calc(2 * var(--gap));
-    }
-
     @media (max-width: 1200px) {
-        .artist-image,
+        .artist-cover,
         .artist-about,
         .artist-education,
         .artist-techniques {
             width: 100%;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .artist-artwork {
-            grid-template-columns: 1fr;
-            row-gap: var(--gap);
-        }
-
-        .artist-artwork > div:nth-child(n) {
-            margin-top: 0px;
-            grid-column-start: 1;
-            grid-column-end: 2;
         }
     }
 </style>

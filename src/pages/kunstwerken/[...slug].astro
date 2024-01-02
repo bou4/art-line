@@ -1,5 +1,11 @@
 ---
 import { getCollection, getEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+import Layout from "../../layouts/Layout.astro";
+
+import Artwork from "../../components/Artwork.astro";
+
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
     const artworkEntries = await getCollection("artwork");
@@ -12,18 +18,61 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { artworkEntry } = Astro.props;
 
-const { Content, headings, remarkPluginFrontmatter } =
-    await artworkEntry.render();
-
-import Layout from "../../layouts/Layout.astro";
+const { Content } = await artworkEntry.render();
 
 const artist = await getEntry(artworkEntry.data.artist);
+
+const artwork = await getCollection("artwork", ({ data, slug }) => {
+    return data.artist.slug === artist.slug && slug !== artworkEntry.slug;
+});
 ---
 
 <Layout title={artist.data.name}>
     <div>
-        <a href="/">Welkom</a> &gt; <a href="/kunstwerken/">Kunstwerken</a> &gt;
-        <a href=`/kunstwerken/${artworkEntry.slug}`>{artworkEntry.data.name}</a>
+        <a class="anchor-dark" href="/kunstwerken/">Terug naar overzicht</a>
     </div>
-    <Content />
+    <div class="artwork-main">
+        <div class="artwork-about">
+            <Content />
+        </div>
+        <div class="artwork-cover">
+            <Image src={artworkEntry.data.cover} alt="" />
+        </div>
+    </div>
+    <div>
+        {
+            artwork && artwork.length !== 0 && (
+                <>
+                    <p>Kunstwerken</p>
+                    <h1>Meer kunst van {artist.data.name}</h1>
+                </>
+            )
+        }
+        <div class="grid-staggered-2">
+            {
+                artwork &&
+                    artwork.map((artwork) => (
+                        <div>
+                            <Artwork artwork={artwork} />
+                        </div>
+                    ))
+            }
+        </div>
+    </div>
 </Layout>
+
+<style>
+    .artwork-main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gap);
+    }
+
+    .artwork-cover {
+        width: calc(50% - var(--gap) / 2);
+    }
+
+    .artwork-about {
+        width: calc(50% - var(--gap) / 2);
+    }
+</style>

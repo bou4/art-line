@@ -12,9 +12,9 @@ artwork.sort((a, b) => {
 ---
 
 <Layout title="Kunstwerken">
-    <div class="artwork-header">
-        <div class="artwork-header-left">
-            <a href="/">Welkom</a> &gt; <a href="/kunstwerken/">Kunstwerken</a>
+    <div class="grid-2">
+        <div>
+            <p>Kunstwerken</p>
             <h1>
                 Van schilderijen tot sculpturen: ontdek onze diverse
                 kunstcollectie.
@@ -22,29 +22,6 @@ artwork.sort((a, b) => {
         </div>
     </div>
     <div class="grid-staggered-2">
-        {
-            artwork.map((artwork) => (
-                <div>
-                    <Artwork artwork={artwork} />
-                </div>
-            ))
-        }
+        {artwork.map((artwork) => <Artwork artwork={artwork} />)}
     </div>
 </Layout>
-
-<style>
-    .artwork-header {
-        display: flex;
-    }
-
-    .artwork-header-left {
-        width: 50%;
-    }
-
-    @media (max-width: 1200px) {
-        .artwork-header-left,
-        .artwork-header-right {
-            width: 100%;
-        }
-    }
-</style>

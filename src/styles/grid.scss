@@ -1,7 +1,22 @@
+.grid-2 {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: calc(2 * var(--gap));
+    column-gap: var(--gap);
+
+    >* {
+        width: calc(50% - var(--gap) * 1 / 2);
+
+        @media (max-width: 1200px) {
+            width: 100%;
+        }
+    }
+}
+
 .grid-staggered-2 {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    row-gap: calc(2 * var(--gap));
+    gap: calc(2 * var(--gap));
 
     >:nth-child(4n + 1) {
         grid-column: 1 / span 5;
@@ -19,6 +34,34 @@
     >:nth-child(4n + 4) {
         grid-column: 8 / span 5;
         margin-top: calc(2 * var(--gap));
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+
+        >:nth-child(n) {
+            margin-top: 0;
+            grid-column: 1 / span 1;
+        }
+    }
+}
+
+.grid-staggered-3 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: calc(2 * var(--gap));
+
+    >:nth-child(3n + 1) {
+        grid-column: 1 / span 4;
+    }
+
+    >:nth-child(3n + 2) {
+        grid-column: 5 / span 4;
+        margin-top: calc(2 * var(--gap));
+    }
+
+    >:nth-child(3n + 3) {
+        grid-column: 9 / span 4;
     }
 
     @media (max-width: 768px) {

@@ -11,12 +11,14 @@ const { artwork } = Astro.props;
 const artist = await getEntry(artwork.data.artist);
 ---
 
-<Image src={artwork.data.cover} alt="" />
-<h2>{artist.data.name}</h2>
-<p>{artwork.data.technique}</p>
-<a class="anchor-dark" href={`/kunstwerken/${artwork.slug}/`}>
-    Meer informatie
-</a>
+<div>
+    <Image src={artwork.data.cover} alt="" />
+    <h3>{artist.data.name}</h3>
+    <p>{artwork.data.technique}</p>
+    <a class="anchor-dark" href={`/kunstwerken/${artwork.slug}/`}>
+        Meer informatie
+    </a>
+</div>
 
 <style>
     p {

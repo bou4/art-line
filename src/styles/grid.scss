@@ -1,11 +1,10 @@
 .grid-2 {
     display: flex;
     flex-wrap: wrap;
-    row-gap: calc(2 * var(--gap));
-    column-gap: var(--gap);
+    gap: calc(2 * var(--gap));
 
     >* {
-        width: calc(50% - var(--gap) * 1 / 2);
+        width: calc(50% - var(--gap));
 
         @media (max-width: 1200px) {
             width: 100%;

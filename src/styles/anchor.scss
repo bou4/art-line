@@ -1,6 +1,4 @@
 a {
-    line-height: 2;
-
     &,
     &:visited,
     &:link {
@@ -12,6 +10,7 @@ a {
     &.anchor-light,
     &.anchor-dark {
         & {
+            line-height: 2;
             position: relative;
             transition: color 0.5s;
         }

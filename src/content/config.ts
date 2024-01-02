@@ -21,6 +21,8 @@ const artworkCollection = defineCollection({
         cover: image(),
         order: z.number().default(0),
         technique: z.string(),
+        size: z.string().optional(),
+        price: z.number().optional(),
     }),
 });
 

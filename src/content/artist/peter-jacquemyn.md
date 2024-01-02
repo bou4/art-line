@@ -2,7 +2,8 @@
 name: Peter Jacquemyn
 cover: "./peter-jacquemyn.png"
 techniques:
-- Sculpturen, Tekeningen
+- Sculpturen
+- Tekeningen
 - Live optredens op contrabas
 ---
 Peter Jacquemyn (°1963 schaarbeek) beweegt zich moeiteloos tussen beeldende kunst en muziek. Als beeldhouwer gaat hij boomstammen te lijf met bijl en kettingzaag. Net zo spectaculair zijn zijn concerten: met tomeloze energie worstelt hij liefdevol met zijn contrabas.

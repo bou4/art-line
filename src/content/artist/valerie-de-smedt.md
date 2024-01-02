@@ -5,11 +5,11 @@ education:
 - Schilderkunst aan LUCA School of Arts te Gent
 - Decoratie en Trompe-l'œil aan het Institut Supérieur de Peinture Van der Kelen-Logelain te Sint-Gillis
 techniques:
-- traditionele schildertechnieken
-- tekenkunst
-- marmer- en houtimitatie
-- vergulding, patina’s
-- belettering
+- Traditionele schildertechnieken
+- Tekenkunst
+- Marmer- en houtimitatie
+- Vergulding, patina’s
+- Belettering
 ---
 Valerie De Smedt (°1999) uit Roosdaal behaalde in 2021 magna cum laude haar masterdiploma Schilderkunst aan LUCA School of Arts te Gent.
 

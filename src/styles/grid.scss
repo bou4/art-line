@@ -52,13 +52,18 @@
 .grid-staggered-3 {
     @extend .grid-3;
 
+    >:nth-child(3n + 1),
+    >:nth-child(3n + 3) {
+        margin-bottom: calc(2 * var(--gap));
+    }
+
     >:nth-child(3n + 2) {
         margin-top: calc(2 * var(--gap));
     }
 
     @media (max-width: 1200px) {
-        >:nth-child(3n + 2) {
-            margin-top: 0;
+        >:nth-child(n) {
+            margin: 0;
         }
     }
 }

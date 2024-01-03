@@ -41,7 +41,7 @@ const artworkRelated = await getCollection("artwork", ({ data, slug }) => {
                 <li>Kunstenaar: <a href={`/kunstenaars/${artist.slug}`}>{artist.data.name}</a></li>
                 <li>Techniek: {artwork.data.technique}</li>
                 {artwork.data.size && <li>Dimensies: {artwork.data.size}</li>}
-                <li>Prijs: {artwork.data.price ? artwork.data.price : 'Op aanvraag'}</li>
+                <li>Prijs: {artwork.data.price ? artwork.data.price : "Op aanvraag"}</li>
             </ul>
         </div>
         <div>

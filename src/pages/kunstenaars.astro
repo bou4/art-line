@@ -13,14 +13,12 @@ artists.sort((a, b) => {
 ---
 
 <Layout title="Kunstenaars">
-    <div class="grid-2">
-        <div>
-            <p>Kunstenaars</p>
-            <h1>
-                Ontmoet de talentvolle kunstenaars die onze galerie tot leven
-                brengen.
-            </h1>
-        </div>
+    <div class="item-half-center">
+        <p>Kunstenaars</p>
+        <h1>
+            Ontmoet de talentvolle kunstenaars die onze galerie tot leven
+            brengen.
+        </h1>
     </div>
     <div class="grid-staggered-3">
         {artists.map((artist) => <Artist artist={artist} />)}

@@ -1,10 +1,16 @@
 ---
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 
 import Layout from "../layouts/Layout.astro";
+import Artist from '../components/Artist.astro';
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/index/*.{jpg,png}');
+
+const artists = await getCollection("artist", ({ data }) => {
+    return data.highlight;
+});
 ---
 
 <Layout title="Welkom">
@@ -42,36 +48,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/index/*
             <a class="anchor-light">Meer informatie</a>
         </div>
     </div>
-    <div class="section-3">
-        <div>
-            <h1>Kunstenaars</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at rhoncus tortor. Donec rhoncus mi ac laoreet feugiat. Nam massa ligula, lacinia non viverra sit amet, ultrices at nunc.</p>
-            <div>
-                <a class="anchor-dark">Bekijk alle kunstennaars</a>&nbsp;
-                <a class="anchor-dark">Bekijk collectie</a>
-            </div>
-        </div>
-        <div>
-            <div>
-                <img src="/assets/kunstenaars/peter-jacquemyn/profiel.png"/>
-                <h2>Peter Jacquemyn</h2>
-                <a class="anchor-dark">Meer informatie</a>
-            </div>
-            <div>
-                <img src="/assets/kunstenaars/pal-horvath/profiel.png"/>
-                <h2>Pal Horvath</h2>
-                <a class="anchor-dark">Meer informatie</a>
-            </div>
-            <div>
-                <img src="/assets/kunstenaars/valerie-de-smedt/profiel.png"/>
-                <h2>Valerie De Smedt</h2>
-                <a class="anchor-dark">Meer informatie</a>
-            </div>
-            <div>
-                <img src="/assets/kunstenaars/eric-leon/profiel.png"/>
-                <h2>Eric Leon</h2>
-                <a class="anchor-dark">Meer informatie</a>
-            </div>
+    <div>
+        <h1>Kunstenaars</h1>
+        <p>Ontmoet de talentvolle kunstenaars die onze galerie tot leven brengen.</p>
+        <a class="anchor-dark" href="/kunstenaars/">Bekijk alle kunstenaars</a>
+        <div class="grid-staggered-3">
+            {artists.map((artist) => <Artist artist={artist} />)}
         </div>
     </div>
     <div class="section-4">
@@ -94,7 +76,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/index/*
 
 <style>
     .section-1 {
-        padding: 2.5em 0em;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(12, 1fr);
@@ -147,7 +128,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/index/*
         grid-template-columns: 1fr 1fr;
         gap: 5em;
         padding: 5em;
-        margin: 2.5em 0em;
         background-color: var(--accent-3);
         color: var(--white);
     }
@@ -161,7 +141,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/index/*
         flex-direction: column;
         gap: 2.5em;
         align-items: center;
-        padding: 2.5em 0em;
     }
 
     .section-3 > :nth-child(1) {
@@ -169,15 +148,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/index/*
         width: 25em;
     }
 
-    .section-3 > :nth-child(2) {
-        display: grid;
-        width: 100%;
-        gap: 2.5em;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
     .section-4 {
-        padding: 2.5em 0em;
         display: grid;
         grid-template-columns: 6fr 1fr 5fr;
         grid-template-rows: 1fr 1fr 1fr;

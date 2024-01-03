@@ -1,6 +1,7 @@
 ---
 name: Eric Leon
 cover: "./eric-leon.jpg"
+highlight: true
 ---
 "Wat is werkelijk? Wat is illusie?
 

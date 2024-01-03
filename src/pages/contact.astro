@@ -39,7 +39,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/contact
             </form>
         </div>
     </div>
-    <div class="contact-footer">
+    <div class="grid-3">
         <Image src={images['/src/assets/contact/1-3x2.jpg']()} alt="" />
         <Image src={images['/src/assets/contact/2-3x2.jpg']()} alt="" />
         <Image src={images['/src/assets/contact/3-3x2.jpg']()} alt="" />
@@ -101,18 +101,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/contact
     .contact-form-button {
         grid-column-start: 2;
         grid-row-start: 5;
-    }
-
-    .contact-footer {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: var(--gap);
-    }
-
-    .contact-footer > img {
-        width: calc(1 / 3 * 100% - var(--gap) * 2 / 3);
-        height: auto;
     }
 
     @media (max-width: 1200px) {

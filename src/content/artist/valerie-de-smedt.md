@@ -10,6 +10,7 @@ techniques:
 - Marmer- en houtimitatie
 - Vergulding, patina’s
 - Belettering
+highlight: true
 ---
 Valerie De Smedt (°1999) uit Roosdaal behaalde in 2021 magna cum laude haar masterdiploma Schilderkunst aan LUCA School of Arts te Gent.
 

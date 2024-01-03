@@ -10,6 +10,7 @@ const artistCollection = defineCollection({
         order: z.number().default(0),
         education: z.array(z.string()).optional(),
         techniques: z.array(z.string()).optional(),
+        highlight: z.boolean().default(false),
     }),
 });
 

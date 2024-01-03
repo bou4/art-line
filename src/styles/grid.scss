@@ -12,8 +12,8 @@
     @extend .grid-2;
 
     >:nth-child(4n + 1) {
-        margin-right: calc(2 * var(--gap));
         margin-bottom: calc(2 * var(--gap));
+        margin-right: calc(2 * var(--gap));
     }
 
     >:nth-child(4n + 2) {
@@ -22,8 +22,8 @@
     }
 
     >:nth-child(4n + 3) {
-        margin-left: calc(2 * var(--gap));
         margin-bottom: calc(2 * var(--gap));
+        margin-left: calc(2 * var(--gap));
     }
 
     >:nth-child(4n + 4) {

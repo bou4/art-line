@@ -1,46 +1,39 @@
 .grid-2 {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: calc(2 * var(--gap));
 
-    >* {
-        width: calc(50% - var(--gap));
-
-        @media (max-width: 1200px) {
-            width: 100%;
-        }
+    @media (max-width: 1200px) {
+        grid-template-columns: 1fr;
     }
 }
 
 .grid-staggered-2 {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: calc(2 * var(--gap));
+    @extend .grid-2;
 
     >:nth-child(4n + 1) {
-        grid-column: 1 / span 5;
+        margin-right: calc(2 * var(--gap));
+        margin-bottom: calc(2 * var(--gap));
     }
 
     >:nth-child(4n + 2) {
-        grid-column: 7 / span 5;
         margin-top: calc(2 * var(--gap));
+        margin-right: calc(2 * var(--gap));
     }
 
     >:nth-child(4n + 3) {
-        grid-column: 2 / span 5;
+        margin-left: calc(2 * var(--gap));
+        margin-bottom: calc(2 * var(--gap));
     }
 
     >:nth-child(4n + 4) {
-        grid-column: 8 / span 5;
         margin-top: calc(2 * var(--gap));
+        margin-left: calc(2 * var(--gap));
     }
 
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-
+    @media (max-width: 1200px) {
         >:nth-child(n) {
-            margin-top: 0;
-            grid-column: 1 / span 1;
+            margin: 0;
         }
     }
 }
@@ -50,13 +43,9 @@
     grid-template-columns: repeat(3, 1fr);
     gap: calc(2 * var(--gap));
 
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
         grid-template-columns: 1fr;
 
-        >:nth-child(n) {
-            margin-top: 0;
-            grid-column: 1 / span 1;
-        }
     }
 }
 
@@ -67,4 +56,9 @@
         margin-top: calc(2 * var(--gap));
     }
 
+    @media (max-width: 1200px) {
+        >:nth-child(3n + 2) {
+            margin-top: 0;
+        }
+    }
 }

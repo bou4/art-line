@@ -11,7 +11,7 @@ const { artist } = Astro.props;
 
 <div>
     <Image src={artist.data.cover} alt="" />
-    <h3>{artist.data.name}</h3>
+    <h2>{artist.data.name}</h2>
     <a class="anchor-dark" href={`/kunstenaars/${artist.slug}/`}>
         Meer informatie
     </a>

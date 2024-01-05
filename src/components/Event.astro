@@ -11,7 +11,7 @@ const { event } = Astro.props;
 
 <div>
     <Image src={event.data.cover} alt='' />
-    <h3>{event.data.name}</h3>
+    <h2>{event.data.name}</h2>
     <p>{event.data.date.toLocaleDateString("fr")} {event.data.dateEnd && `t.e.m. ${event.data.dateEnd.toLocaleDateString("fr")}`}</p>
     <a class="anchor-dark" href={`/exposities/${event.slug}/`}>
         Meer informatie

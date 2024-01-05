@@ -29,22 +29,36 @@ const artworkRelated = await getCollection("artwork", ({ data, slug }) => {
 ---
 
 <Layout title={artist.data.name}>
-    <div>
-        <a class="anchor-dark" href="/kunstwerken/">Terug naar overzicht</a>
-    </div>
-    <div class="grid-2">
+    <div class="stack gap-2">
         <div>
-            <Content />
-            <hr />
-            <h3>Details</h3>
-            <ul>
-                <li>Kunstenaar: <a href={`/kunstenaars/${artist.slug}`}>{artist.data.name}</a></li>
-                <li>Techniek: {artwork.data.technique}</li>
-                {artwork.data.size && <li>Dimensies: {artwork.data.size}</li>}
-                <li>Prijs: {artwork.data.price ? artwork.data.price : "Op aanvraag"}</li>
-            </ul>
+            <a class="anchor-dark" href="/kunstwerken/">Terug naar overzicht</a>
         </div>
-        <div>
+        <div class="grid-2">
+            <div>
+                <Content />
+                <hr />
+                <h3>Details</h3>
+                <ul>
+                    <li>
+                        Kunstenaar: <a href={`/kunstenaars/${artist.slug}`}
+                            >{artist.data.name}</a
+                        >
+                    </li>
+                    <li>Techniek: {artwork.data.technique}</li>
+                    {
+                        artwork.data.size && (
+                            <li>Dimensies: {artwork.data.size}</li>
+                        )
+                    }
+                    <li>
+                        Prijs: {
+                            artwork.data.price
+                                ? artwork.data.price
+                                : "Op aanvraag"
+                        }
+                    </li>
+                </ul>
+            </div>
             <Image src={artwork.data.cover} alt="" />
         </div>
     </div>
@@ -52,9 +66,11 @@ const artworkRelated = await getCollection("artwork", ({ data, slug }) => {
         Krijgen ze een nieuwe betekenis bij een nieuwe bestemming? Vraag naar de
         mogelijkheden! Kopen, huren, ruilen, ...
     </CTA>
-    <div class:list={[{ hidden: artworkRelated.length === 0 }]}>
-        <p>Kunstwerken</p>
-        <h1>Meer kunst van {artist.data.name}</h1>
+    <div class:list={["stack gap-2", { hidden: artworkRelated.length === 0 }]}>
+        <div>
+            <p>Kunstwerken</p>
+            <h1>Meer kunst van {artist.data.name}</h1>
+        </div>
         <div class="grid-staggered-2">
             {artworkRelated.map((artwork) => <Artwork artwork={artwork} />)}
         </div>

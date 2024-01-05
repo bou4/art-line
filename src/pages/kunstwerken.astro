@@ -13,14 +13,17 @@ artwork.sort((a, b) => {
 ---
 
 <Layout title="Kunstwerken">
-    <div class="item-half-center">
-        <p>Kunstwerken</p>
-        <h1>
-            Van schilderijen tot sculpturen: ontdek onze diverse kunstcollectie.
-        </h1>
-    </div>
-    <div class="grid-staggered-2">
-        {artwork.map((artwork) => <Artwork artwork={artwork} />)}
+    <div class="stack gap-2">
+        <div class="item-half-center">
+            <p>Kunstwerken</p>
+            <h1>
+                Van schilderijen tot sculpturen: ontdek onze diverse
+                kunstcollectie.
+            </h1>
+        </div>
+        <div class="grid-staggered-2">
+            {artwork.map((artwork) => <Artwork artwork={artwork} />)}
+        </div>
     </div>
     <CTA title="Interesse in een kunstwerk?">
         Krijgen ze een nieuwe betekenis bij een nieuwe bestemming? Vraag naar de

@@ -1,6 +1,71 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import { getCollection, type CollectionEntry } from "astro:content";
+
 import Layout from "../layouts/Layout.astro";
+import Event from "../components/Event.astro";
+import EventCard from "../components/EventCard.astro";
+import CTA from "../components/CTA.astro";
+
+const events = await getCollection("event");
+
+events.sort((a, b) => {
+    return a.data.date < b.data.date ? 1 : -1;
+});
+
+function filter(event: CollectionEntry<"event">) {
+    const date = new Date();
+
+    date.setHours(0, 0, 0, 0);
+
+    if (event.data.dateEnd) {
+        return date > event.data.dateEnd;
+    } else {
+        return date > event.data.date;
+    }
+}
+
+const pastEvents = events.filter(filter);
+const upcomingEvents = events.filter((event) => !filter(event));
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/event/*.{jpg,png}",
+);
 ---
+
 <Layout title="Exposities">
-    
+    <div class="stack gap-2">
+        <div class="item-half-center">
+            <p>Exposities</p>
+            <h1>
+                Verken dynamische exposities en ontdek onze galerij in volle
+                diversiteit.
+            </h1>
+        </div>
+        {upcomingEvents.map((event) => <EventCard event={event} />)}
+    </div>
+    <div class="grid-3">
+        <Image src={images["/src/assets/event/1-3x2.jpg"]()} alt="" />
+        <Image src={images["/src/assets/event/2-3x2.jpg"]()} alt="" />
+        <Image src={images["/src/assets/event/3-3x2.jpg"]()} alt="" />
+    </div>
+    <div class="stack gap-2">
+        <div class="item-half">
+            <p>Afgelopen exposities</p>
+            <h1>
+                In de voorbije jaren mochten wij mooie kunstwerken, foto's en
+                objecten tentoonstellen en verkopen. Aan onze klanten daarvoor
+                een oprecht woord van dank voor het vertrouwen.
+            </h1>
+        </div>
+        <div class="grid-staggered-3">
+            {pastEvents.map((event) => <Event event={event} />)}
+        </div>
+    </div>
+    <CTA title="Exposeren bij Art-line?">
+        Ontdek de mogelijkheden van jouw kunst in onze inspirerende ruimte.
+        Exposeer bij Art-line en deel jouw creativiteit met een gepassioneerd
+        publiek.
+    </CTA>
 </Layout>

@@ -34,6 +34,12 @@ const eventCollection = defineCollection({
         cover: image(),
         date: z.coerce.date(),
         dateEnd: z.coerce.date().optional(),
+        description: z.string().optional(),
+        gallery: z.array(image()).optional(),
+        quote: z.object({
+            text: z.string(),
+            source: z.string().optional()
+        }).optional(),
     }),
 });
 

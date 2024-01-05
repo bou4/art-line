@@ -23,7 +23,7 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main class="stack gap-4">
 			<slot />
 		</main>
 		<Footer />
@@ -36,9 +36,6 @@ const { title } = Astro.props;
 	}
 
 	main {
-		display: flex;
-		flex-direction: column;
-		gap: calc(2 * var(--gap));
-		margin: calc(2 * var(--gap));
+		margin: calc(2 * var(--gap)) calc(2 * var(--gap)) calc(4 * var(--gap));
 	}
 </style>

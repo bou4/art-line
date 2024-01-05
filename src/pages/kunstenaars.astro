@@ -13,15 +13,17 @@ artists.sort((a, b) => {
 ---
 
 <Layout title="Kunstenaars">
-    <div class="item-half-center">
-        <p>Kunstenaars</p>
-        <h1>
-            Ontmoet de talentvolle kunstenaars die onze galerie tot leven
-            brengen.
-        </h1>
-    </div>
-    <div class="grid-staggered-3">
-        {artists.map((artist) => <Artist artist={artist} />)}
+    <div class="stack gap-2">
+        <div class="item-half-center">
+            <p>Kunstenaars</p>
+            <h1>
+                Ontmoet de talentvolle kunstenaars die onze galerij tot leven
+                brengen.
+            </h1>
+        </div>
+        <div class="grid-staggered-3">
+            {artists.map((artist) => <Artist artist={artist} />)}
+        </div>
     </div>
     <CTA title="Interesse in een samenwerking? Vragen over onze diensten?" />
 </Layout>

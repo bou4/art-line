@@ -27,49 +27,59 @@ const artwork = await getCollection("artwork", ({ data }) => {
 ---
 
 <Layout title={artist.data.name}>
-    <div>
-        <a class="anchor-dark" href="/kunstenaars/">Terug naar overzicht</a>
-        <p class="text-center">Kunstenaar</p>
-        <h1 class="text-center">{artist.data.name}</h1>
-    </div>
-    <div class="grid-2">
+    <div class="stack gap-2">
         <div>
-            <Image src={artist.data.cover} alt="" />
+            <a class="anchor-dark" href="/kunstenaars/">Terug naar overzicht</a>
+            <div class="item-half-center">
+                <p>Kunstenaar</p>
+                <h1>{artist.data.name}</h1>
+            </div>
         </div>
-        <div>
-            <h2>Over de kunstenaar</h2>
-            <Content />
-            <a class="anchor-dark" href="/contact/">Vragen? Contacteer ons</a>
-        </div>
-        <div class:list={[{ hidden: !artist.data.education }]}>
-            <h2>Opleidingen</h2>
-            <ul>
-                {
-                    artist.data.education &&
-                        artist.data.education.map((education) => (
+        <div class="grid-2">
+            <Image class="artist-cover" src={artist.data.cover} alt="" />
+            <div>
+                <h2>Over de kunstenaar</h2>
+                <Content />
+                <a class="anchor-dark" href="/contact/"
+                    >Vragen? Contacteer ons</a
+                >
+            </div>
+            <div class:list={[{ hidden: !artist.data.education }]}>
+                <h2>Opleidingen</h2>
+                <ul>
+                    {
+                        artist.data.education?.map((education) => (
                             <li>{education}</li>
                         ))
-                }
-            </ul>
-        </div>
-        <div class:list={[{ hidden: !artist.data.techniques }]}>
-            <h2>Technieken</h2>
-            <ul>
-                {
-                    artist.data.techniques &&
-                        artist.data.techniques.map((technique) => (
+                    }
+                </ul>
+            </div>
+            <div class:list={[{ hidden: !artist.data.techniques }]}>
+                <h2>Technieken</h2>
+                <ul>
+                    {
+                        artist.data.techniques?.map((technique) => (
                             <li>{technique}</li>
                         ))
-                }
-            </ul>
+                    }
+                </ul>
+            </div>
         </div>
     </div>
-    <div class:list={[{ hidden: artwork.length === 0 }]}>
-        <p>Kunstwerken</p>
-        <h1>Kunst van {artist.data.name}</h1>
+    <div class:list={["stack gap-2", { hidden: artwork.length === 0 }]}>
+        <div>
+            <p>Kunstwerken</p>
+            <h1>Kunst van {artist.data.name}</h1>
+        </div>
         <div class="grid-staggered-2">
             {artwork.map((artwork) => <Artwork artwork={artwork} />)}
         </div>
     </div>
     <CTA title="Interesse in een samenwerking? Vragen over onze diensten?" />
 </Layout>
+
+<style>
+    .artist-cover {
+        margin: auto 0;
+    }
+</style>

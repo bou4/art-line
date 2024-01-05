@@ -1,11 +1,13 @@
 ---
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/contact/*.{jpg,png}');
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/contact/*.{jpg,png}",
+);
 ---
 
 <Layout title="Contact">
@@ -13,7 +15,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/contact
         <div class="contact-main-left">
             <a href="/">Welkom</a> &gt; <a href="/contact">Contact</a>
             <h1>Vragen over kunst of samenwerkingen?</h1>
-            <p>info@art-line.be<br />0486/83.82.50</p>
+            <p>
+                info@art-line.be<br />
+                Ludo Leuwers: 0477/30.72.56 (SMS of WhatsApp)<br />
+                Paul Boulez: 0473/91.79.11 (SMS of Whatsapp)
+            </p>
             <div class="contact-address">
                 <div class="contact-address-1">
                     <h3>Tentoonstellingen</h3>
@@ -31,22 +37,37 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/contact
         </div>
         <div class="contact-main-right">
             <form class="contact-form form-dark">
-                <input class="contact-form-name" type="text" placeholder="Naam*" />
-                <input class="contact-form-mail" type="text" placeholder="E-mailadres*" />
-                <input class="contact-form-subject" type="text" placeholder="Onderwerp*" />
-                <textarea class="contact-form-body" placeholder="Bericht*" />
-                <button class="contact-form-button" type="submit">Stuur bericht</button>
+                <input
+                    class="contact-form-name"
+                    type="text"
+                    placeholder="Naam*"
+                />
+                <input
+                    class="contact-form-mail"
+                    type="text"
+                    placeholder="E-mailadres*"
+                />
+                <input
+                    class="contact-form-subject"
+                    type="text"
+                    placeholder="Onderwerp*"
+                />
+                <textarea class="contact-form-body" placeholder="Bericht*"
+                ></textarea>
+                <button class="contact-form-button" type="submit"
+                    >Stuur bericht</button
+                >
             </form>
         </div>
     </div>
     <div class="grid-3">
-        <Image src={images['/src/assets/contact/1-3x2.jpg']()} alt="" />
-        <Image src={images['/src/assets/contact/2-3x2.jpg']()} alt="" />
-        <Image src={images['/src/assets/contact/3-3x2.jpg']()} alt="" />
+        <Image src={images["/src/assets/contact/1-3x2.jpg"]()} alt="" />
+        <Image src={images["/src/assets/contact/2-3x2.jpg"]()} alt="" />
+        <Image src={images["/src/assets/contact/3-3x2.jpg"]()} alt="" />
     </div>
 </Layout>
 
-<style>  
+<style>
     .contact-main {
         display: flex;
         flex-wrap: wrap;
@@ -104,13 +125,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/contact
     }
 
     @media (max-width: 1200px) {
-        .contact-main-left, .contact-main-right {
+        .contact-main-left,
+        .contact-main-right {
             width: 100%;
         }
     }
 
     @media (max-width: 768px) {
-        .contact-address-1, .contact-address-2 {
+        .contact-address-1,
+        .contact-address-2 {
             width: 100%;
         }
     }

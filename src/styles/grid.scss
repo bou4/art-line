@@ -1,3 +1,27 @@
+.stack {
+	display: flex;
+	flex-direction: column;
+}
+
+.gap-1 {
+	gap: calc(1 * var(--gap));
+}
+.gap-2 {
+	gap: calc(2 * var(--gap));
+}
+.gap-4 {
+	gap: calc(4 * var(--gap));
+}
+.gap-8 {
+	gap: calc(8 * var(--gap));
+}
+.gap-10 {
+    gap: calc(10 * var(--gap));
+}
+.gap-20 {
+	gap: calc(20 * var(--gap));
+}
+
 .grid-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

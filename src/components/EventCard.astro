@@ -1,0 +1,85 @@
+---
+import { type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+interface Props {
+    event: CollectionEntry<"event">,
+    dark?: boolean
+}
+
+const { event, dark } = Astro.props;
+---
+
+<div class:list={["card", { "card-dark": dark}]}>
+    <div class="card-body">
+        <p>Geplande expositie</p>
+        <div class="card-text">
+            <h2>{event.data.name}</h2>
+            <p class="card-date">
+                {event.data.date.toLocaleDateString("fr")}
+                {
+                    event.data.dateEnd &&
+                        `t.e.m. ${event.data.dateEnd.toLocaleDateString("fr")}`
+                }
+            </p>
+            <p>{event.data.description}</p>
+        </div>
+        <a class:list={[{"anchor-dark": !dark}, {"anchor-light": dark}]} href={`/exposities/${event.slug}/`}>
+            Meer informatie
+        </a>
+    </div>
+    <Image class="card-image" src={event.data.cover} alt="" />
+</div>
+
+<style>
+    .card {
+        background-color: var(--white);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .card-body,
+    .card-image {
+        width: 50%;
+    }
+
+    .card-body {
+        padding: 0 calc(2 * var(--gap));
+    }
+
+    @media (max-width: 1200px) {
+        .card-body,
+        .card-image {
+            width: 100%;
+        }
+
+        .card-body {
+            padding: calc(2 * var(--gap));
+        }
+    }
+
+    .card-text {
+        padding-left: var(--gap);
+        border-left: 2px solid var(--black);
+    }
+    
+    .card-date {
+        font-style: italic;
+        color: var(--accent-2);
+    }
+    
+    /* Dark theme */
+    .card-dark {
+        background-color: var(--accent-3);
+        color: var(--white);
+    }
+
+    .card-dark .card-text {
+        border-color: var(--white);
+    }
+
+    .card-dark .card-date {
+        color: var(--accent-1);
+    }
+</style>

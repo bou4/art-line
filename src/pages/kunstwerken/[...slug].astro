@@ -1,6 +1,4 @@
 ---
-export const prerender = true;
-
 import { getCollection, getEntry } from "astro:content";
 import { Image } from "astro:assets";
 
@@ -35,7 +33,7 @@ const artworkRelated = await getCollection("artwork", ({ data, slug }) => {
         <div>
             <a class="anchor-dark" href="/kunstwerken/">Terug naar overzicht</a>
         </div>
-        <div class="grid-2">
+        <div class="grid-2 gap-2">
             <div>
                 <Content />
                 <hr />

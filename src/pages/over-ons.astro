@@ -1,9 +1,124 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
 import Layout from "../layouts/Layout.astro";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/over-ons/*.{jpg,png}",
+);
 ---
+
 <Layout title="Over ons">
-    <div class="item-half-center">
-        <h1>Onder constructie! Kijk binnenkort nog eens terug.</h1>
-        <a class="anchor-dark" href="/">Terug naar home</a>
+    <div class="stack gap-2">
+        <div class="item-half-center">
+            <p>Over ons</p>
+            <h1>
+                Art-line, gevestigd in Dilbeek, verenigt en inspireert mensen
+                door middel van kunst.
+            </h1>
+        </div>
+    </div>
+    <div class="section-1">
+        <Image src={images["/src/assets/over-ons/1-1x1.jpg"]()} alt="" />
+        <div>
+            <h1>
+                Art-line is een samenwerking tussen osk-art & linear.
+            </h1>
+            <p>
+                Wij willen in een open ruimte plaats bieden aan de beleving en beoefening van creativiteit,
+                individueel of in groep.
+
+                Ons doel is stimulerend te zijn voor uitvinden, ontwerpen, maken ... tonen!
+            </p>
+        </div>
+        <div>
+            <h1>
+                Onze expositieruimte
+            </h1>
+            <p>
+                Elke vorm van expressie moet aan bod komen:
+                tekenen, schilderen, schrijven of dichten, beeldend werken, foto of film, muziek, design of mode, ...
+
+                Het wil de plek zijn waar ontmoeten een stimulans is.
+            </p>
+            <a class="anchor-dark" href="/contact/">Exposeren bij Art-line</a>
+        </div>
+        <Image src={images["/src/assets/over-ons/2-4x5.jpg"]()} alt="" />
+    </div>
+    <div class="grid-3">
+        <Image src={images["/src/assets/over-ons/3-1x1.jpg"]()} alt="" />
+        <Image src={images["/src/assets/over-ons/4-1x1.jpg"]()} alt="" />
+        <Image src={images["/src/assets/over-ons/5-1x1.jpg"]()} alt="" />
+    </div>
+    <div class="stack gap-2">
+        <div class="item-half">
+            <h1>OSK-AR architecten</h1>
+            <p>
+                Art-line bevindt zich in hetzelfde gebouw als de kantoren van
+                OSK-AR architecten, waardoor een unieke synergie ontstaat tussen
+                kunst en architectuur.
+            </p>
+            <a class="anchor-dark" href="https://osk-ar.be/">Bezoek website</a>
+        </div>
+        <div class="grid-2 gap-2" style="align-items: center;">
+            <div>
+                <Image src={images["/src/assets/over-ons/6.jpg"]()} alt="" />
+                <p>&copy; Klaas Verdru</p>
+            </div>
+            <div>
+                <Image src={images["/src/assets/over-ons/7.jpg"]()} alt="" />
+                <p>&copy; Klaas Verdru</p>
+            </div>
+        </div>
     </div>
 </Layout>
+
+<style>
+    .section-1 {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        grid-auto-rows: auto;
+    }
+
+    .section-1 > :nth-child(1) {
+        align-self: start;
+    }
+
+    .section-1 > :nth-child(2) {
+        padding-left: calc(1 / 5 * 100%);
+        padding-bottom: calc(8 * var(--gap));
+
+        align-self: start;
+    }
+
+    .section-1 > :nth-child(3) {
+        padding-left: calc(1 / 7 * 100%);
+        padding-top: calc(2 * var(--gap));
+
+        align-self: end;
+    }
+
+    .section-1 > :nth-child(4) {
+        padding-left: calc(1 / 5 * 100%);
+        margin-top: calc(-8 * var(--gap));
+
+        align-self: end;
+    }
+
+    @media (max-width: 1200px) {
+        .section-1 {
+            grid-template-columns: 1fr;
+            gap: calc(2 * var(--gap));
+        }
+
+        .section-1 > :nth-child(3) {
+            order: 1;
+        }
+
+        .section-1 > :nth-child(n) {
+            padding: 0;
+            margin: 0;
+        }
+    }
+</style>

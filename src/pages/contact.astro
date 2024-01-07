@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
+import ContactForm from "../components/ContactForm.tsx";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
     "/src/assets/contact/*.{jpg,png}",
@@ -31,33 +32,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                 </div>
             </div>
             <p>
-                <a href="https://www.facebook.com/profile.php?id=61555195834992"><Icon icon='facebook-logo' size='1.25em' /></a>
-                <a href="https://www.instagram.com/artline_dilbeek/"><Icon icon='instagram-logo' size='1.25em' /></a>        
+                <a href="https://www.facebook.com/profile.php?id=61555195834992"
+                    ><Icon icon="facebook-logo" size="1.25em" /></a
+                >
+                <a href="https://www.instagram.com/artline_dilbeek/"
+                    ><Icon icon="instagram-logo" size="1.25em" /></a
+                >
             </p>
         </div>
         <div class="contact-main-right">
-            <form class="contact-form form-dark">
-                <input
-                    class="contact-form-name"
-                    type="text"
-                    placeholder="Naam*"
-                />
-                <input
-                    class="contact-form-mail"
-                    type="text"
-                    placeholder="E-mailadres*"
-                />
-                <input
-                    class="contact-form-subject"
-                    type="text"
-                    placeholder="Onderwerp*"
-                />
-                <textarea class="contact-form-body" placeholder="Bericht*"
-                ></textarea>
-                <button class="contact-form-button" type="submit"
-                    >Stuur bericht</button
-                >
-            </form>
+            <ContactForm client:load />
         </div>
     </div>
     <div class="grid-3">
@@ -95,34 +79,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         width: 50%;
     }
 
-    .contact-form {
-        padding: var(--gap);
-        gap: calc(var(--gap) / 2);
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-    }
-
-    .contact-form > * {
-        min-width: 0;
-    }
-
-    .contact-form-subject {
-        grid-column-start: 1;
-        grid-column-end: 3;
-    }
-
-    .contact-form-body {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 3;
-        grid-row-end: 5;
-    }
-
-    .contact-form-button {
-        grid-column-start: 2;
-        grid-row-start: 5;
-    }
 
     @media (max-width: 1200px) {
         .contact-main-left,

@@ -1,5 +1,6 @@
 ---
 import Icon from '../components/Icon.astro';
+import SubscribeForm from "../components/SubscribeForm.tsx";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -34,18 +35,7 @@ const currentYear = new Date().getFullYear();
                 </div>
             </div>
         </div>
-        <div class='footer-form'>
-            <h3>Blijf op de hoogte</h3>
-            <p>
-                Geef hieronder uw e-mailadres op om u in te schrijven op onze
-                nieuwsbrief, en blijf op de hoogte van onze activiteiten.
-            </p>
-            <form class='form-dark'>
-                <input type='text' placeholder='Naam*' />
-                <input type='text' placeholder='E-mailadres*' />
-                <button type='submit'>Registreer</button>
-            </form>
-        </div>
+        <SubscribeForm client:load />
     </div>
     <div class='footer-footer'>
         <p class='footer-copyright'>
@@ -89,28 +79,6 @@ const currentYear = new Date().getFullYear();
         width: 50%;
     }
 
-    .footer-form {
-        width: calc(5 / 12 * 100%);
-    }
-
-    .footer-form > form {
-        display: flex;
-        flex-wrap: wrap;
-        gap: calc(var(--gap) / 2);
-    }
-
-    .footer-form > form > :nth-child(1) {
-        width: calc(1 / 3 * 100% - var(--gap) / 2 * 2 / 3);
-    }
-
-    .footer-form > form > :nth-child(2) {
-        width: calc(1 / 3 * 100% - var(--gap) / 2 * 2 / 3);
-    }
-
-    .footer-form > form > :nth-child(3) {
-        width: calc(1 / 3 * 100% - var(--gap) / 2 * 2 / 3);
-    }
-
     .footer-footer {
         display: flex;
         align-items: center;
@@ -130,11 +98,6 @@ const currentYear = new Date().getFullYear();
         .footer-sitemap {
             width: calc(1 / 2 * 100%);
         }
-
-        .footer-form {
-            width: calc(100%);
-            order: -1;
-        }
     }
 
     @media (max-width: 768px) {
@@ -143,15 +106,6 @@ const currentYear = new Date().getFullYear();
         }
 
         .footer-sitemap {
-            width: 100%;
-        }
-
-        .footer-form {
-            width: 100%;
-            order: -1;
-        }
-
-        .footer-form > form > :nth-child(n) {
             width: 100%;
         }
     }
